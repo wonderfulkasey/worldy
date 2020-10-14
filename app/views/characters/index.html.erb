@@ -1,0 +1,10 @@
+<h1> char index page</h1>
+
+<ul>
+    <% @characters.each do |c| %>
+       <li><%= link_to c.name, world_character_path(c.world, c) %></li>   
+    <br>
+    <% end %>
+</ul>
+<br>
+<%= link_to 'create a new character', characters_new_path %>
