@@ -1,0 +1,7 @@
+<h1>Edit a Character!</h1>
+
+<%= render partial: "form", locals: {character: @character} %>
+
+<% @doc.errors.full_messages.each do |error| %>
+<%= error %> <br>
+<% end %>
