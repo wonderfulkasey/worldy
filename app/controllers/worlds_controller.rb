@@ -7,21 +7,13 @@ class WorldsController < ApplicationController
    def show
    end 
 
-   def character
-    @character = Character.find(params[:character_id])
-    render template: 'characters/show'
-end
-
-def plot
-    @plot = Plot.find(params[:plot_id])
-    render template: 'plots/show'
-end
-
 def new
     @world = World.new
 end
 
 def create
+    @world = current_user.worlds.build(world_params)
+ 
 end 
 
 def edit 
@@ -29,6 +21,7 @@ def edit
 end 
 
 def update
+    @world = World.find(params[:id])
 end
 
 def destroy
@@ -43,9 +36,7 @@ private
 def world_params
     params.require(:world).permit(
         :name,
-        :genre,
         :description,
-        :aesthetic,
         :user_id
     )
 end
