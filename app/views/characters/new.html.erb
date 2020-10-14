@@ -1,0 +1,7 @@
+<h1>Create a character!</h1>
+
+<%= render partial: "form", locals: {character: @character} %>
+
+<% @character.errors.full_messages.each do |error| %>
+<%= error %> <br>
+<% end %>
