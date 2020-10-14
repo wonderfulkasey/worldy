@@ -1,5 +1,9 @@
+<h1>plot index page</h1>
+
 <ul>
     <% @plots.each do |p| %>
        <li><%= link_to p.title, world_plot_path(p.world, p) %></li>
     <% end %> 
 </ul>
+
+<%= link_to 'create a new plot', plots_new_path %>
