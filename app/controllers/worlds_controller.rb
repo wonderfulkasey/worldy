@@ -4,16 +4,25 @@ class WorldsController < ApplicationController
         @worlds = World.all
    end
 
-   def show
-   end 
-
-def new
+   def new
     @world = World.new
 end
 
+   def show
+    @world = World.find(params[:id])
+   end 
+
+
+
 def create
-    @world = current_user.worlds.build(world_params)
- 
+    #@world = current_user.worlds.build(world_params)
+    @world = World.new(world_params)
+      
+    if @world.save
+      redirect_to world_path(@world)
+    else 
+      render 'new'
+    end
 end 
 
 def edit 
