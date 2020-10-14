@@ -1,0 +1,7 @@
+<h1>Edit world!</h1>
+
+<%= render partial: "form", locals: {world: @world} %>
+
+<% @world.errors.full_messages.each do |error| %>
+<%= error %> <br>
+<% end %>
