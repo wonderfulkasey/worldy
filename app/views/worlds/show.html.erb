@@ -8,7 +8,32 @@
   <%= @world.description %>
 </p>
 
+
+<p>
+  <h3>plots in <%= @world.name %> </h3>
+            <% @plots.each do |p| %>
+                
+                  <li><%= link_to p.title, world_plot_path(@world.plot) %></li>
+ 
+            <% end %>
+            <br>
+</p>
+
+
+
+<p>
+  <h3>characters in <%= @world.name %> </h3>
+            <% @characters.each do |c| %>
+                
+                  <li><%= link_to c.name, world_plot_path(@world.plot) %></li>
+ 
+            <% end %>
+  <br>
+</p>
+
+
 <h2>
 <%= link_to 'BACK', worlds_path %>
 
 </h2>
+
