@@ -1,13 +1,14 @@
 class PlotsController < ApplicationController
 
     def index
-    end
-
-    def show
+        redirect_to worlds_path(@worlds)
     end
 
     def new
         @plot = @world.plots.build
+    end
+    
+    def show
     end
 
     def create
