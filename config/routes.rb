@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
 root 'worlds#home'
 
-resources :worlds
+resources :worlds do
+  resources :plots
+  resources :characters 
+end 
+
 resources :plots
 resources :characters
 
