@@ -4,15 +4,21 @@ class CharactersController < ApplicationController
         redirect_to worlds_path(@worlds)
     end
 
-    def show
-    end
-
     def new
         @character = @world.characters.build
     end
 
+    def show
+    end
+
     def create
-      
+        @character = Character.new(character_params)
+        
+        if @character.save
+            redirect_to world_character_path(@character.world)
+          else 
+            render 'new'
+          end 
     end
   
 
@@ -21,12 +27,14 @@ class CharactersController < ApplicationController
     end
 
     def update
+        @character = Character.find(params[:id])
     end
 
     def destroy
         @character = Character.find(params[:id])
         @character.destroy
-#redirect
+        
+        redirect_to world_character_path(@character.world)
     end
 
     private 
