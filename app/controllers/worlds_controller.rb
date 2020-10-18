@@ -1,5 +1,9 @@
 class WorldsController < ApplicationController
 
+    before_action :set_plot, except: [:index, :new, :create, :show, :destroy, :edit, :update, :profile]
+    before_action :set_character, except: [:index, :new, :create, :show, :destroy, :edit, :update, :profile]
+
+
     def index
         @worlds = World.all
    end
