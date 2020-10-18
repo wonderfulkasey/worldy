@@ -1,5 +1,6 @@
 class PlotsController < ApplicationController
 
+    before_action :authenticate_user!
     before_action :set_world
     #, only: [:index, :new, :create, :show]
 
