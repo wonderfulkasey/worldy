@@ -1,5 +1,8 @@
 class PlotsController < ApplicationController
 
+    before_action :set_world
+    #, only: [:index, :new, :create, :show]
+
     def index
         redirect_to worlds_path(@worlds)
     end
@@ -15,7 +18,7 @@ class PlotsController < ApplicationController
         @plot = Plot.new(plot_params)
         
         if @plot.save
-            redirect_to world_plot_path(@plot.world)
+            redirect_to world_plot_path(@plot.world, @plot)
           else 
             render 'new'
           end 
@@ -33,7 +36,7 @@ class PlotsController < ApplicationController
         @plot = Plot.find(params[:id])
         @plot.destroy
 
-        redirect_to world_plot_path(@plot.world)
+        redirect_to world_plot_path(@plot.world, @plot)
     end
 
     private 
