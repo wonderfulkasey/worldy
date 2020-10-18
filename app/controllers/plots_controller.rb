@@ -12,20 +12,28 @@ class PlotsController < ApplicationController
     end
 
     def create
-    end
+        @plot = Plot.new(plot_params)
+        
+        if @plot.save
+            redirect_to world_plot_path(@plot.world)
+          else 
+            render 'new'
+          end 
+        end
 
     def edit
        @plot = Plot.find(params[:id])
     end
 
     def update
+        @plot = Plot.find(params[:id])
     end
 
     def destroy
         @plot = Plot.find(params[:id])
         @plot.destroy
 
-        redirect_to plots_path 
+        redirect_to world_plot_path(@plot.world)
     end
 
     private 
@@ -33,7 +41,6 @@ class PlotsController < ApplicationController
     def plot_params
         params.require(:plot).permit(
             :title,
-            :importance,
             :description,
             :user_id,
             :world_id
