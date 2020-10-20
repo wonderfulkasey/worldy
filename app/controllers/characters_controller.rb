@@ -1,7 +1,8 @@
 class CharactersController < ApplicationController
 
-    #before_action :authenticate_user!
+    before_action :authenticate_user!
     before_action :set_world
+    before_action :set_character, except: [:index, :new, :create, :show, :destroy]
 
     def index
         redirect_to worlds_path(@worlds)
@@ -12,13 +13,15 @@ class CharactersController < ApplicationController
     end
 
     def show
+        set_character
     end
 
     def create
         @character = Character.new(character_params)
-        
+        @character.user_id = current_user.id
+
         if @character.save
-            redirect_to world_character_path(@character.world)
+            redirect_to world_character_path(@character.world, @character)
           else 
             render 'new'
           end 
@@ -31,6 +34,14 @@ class CharactersController < ApplicationController
 
     def update
         @character = Character.find(params[:id])
+        @character.user_id = current_user.id
+
+        if @character.update
+            redirect_to world_character_path(@character.world, @character)
+          else 
+            render 'edit'
+          end 
+    
     end
 
     def destroy
@@ -51,6 +62,10 @@ class CharactersController < ApplicationController
             :user_id,
             :world_id
         )
+    end
+
+    def set_world
+        @world = World.find_by(id:params[:world_id])
     end
 
 end
