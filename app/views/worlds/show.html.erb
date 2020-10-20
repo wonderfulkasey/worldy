@@ -1,3 +1,21 @@
+<% if @world.user_id == current_user.id %>
+<br>
+    <%= link_to "EDIT WORLD", edit_world_path(@world) %> <br>
+    <br>
+    <%= link_to "NEW CHARACTER", new_world_character_path(@world) %> <br>
+    <%= link_to "NEW PLOT", new_world_plot_path(@world) %>
+<br>
+<br>
+
+<% else %>
+ <h3>Created by:</h3>
+ <%= @world.user.name %> 
+<br>
+<br>
+<% end %>
+
+<br>
+
 <p>
   <strong>Name:</strong>
   <%= @world.name %>
