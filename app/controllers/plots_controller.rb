@@ -60,7 +60,11 @@ class PlotsController < ApplicationController
     end
 
     def set_world
-        @world = World.find_by(id:params[:world_id])
+        @world = World.find(params[:id])
+    end
+
+    def set_plot
+        @plot = Plot.find(params[:id])
     end
 
 end
