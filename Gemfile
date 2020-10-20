@@ -26,6 +26,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'omniauth-github'
 
+#to add fake data 
+gem 'faker'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
