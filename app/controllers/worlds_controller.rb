@@ -15,20 +15,37 @@ class WorldsController < ApplicationController
 end
 
    def show
-    @world = World.find(params[:id])
+    if params[:id] == "most-plots"
+        @world = World.most_plots.first
+
+    else  
+        set_world
+
+    end
+    @characters = @world.characters
+    @plots = @world.plots
    end 
 
 
+def character
+    @character = Character.find(params[:character_id])
+    render template: 'characters/show'
+end
+
+def plot
+    @plot = Plot.find(params[:plot_id])
+    render template: 'plots/show'
+end
+
 
 def create
-    #@world = current_user.worlds.build(world_params)
-    @world = World.new(world_params)
-      
+    @world = current_user.worlds.build(world_params)
+
     if @world.save
-      redirect_to world_path(@world)
-    else 
-      render 'new'
-    end
+        redirect_to world_path(@world)
+    else
+       render 'new'
+    end 
 end 
 
 def edit 
@@ -37,6 +54,12 @@ end
 
 def update
     @world = World.find(params[:id])
+
+    if @world.update(world_params)
+        redirect_to world_path(@world)
+    else
+       render 'edit'
+    end 
 end
 
 def destroy

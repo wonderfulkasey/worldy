@@ -2,7 +2,8 @@ class PlotsController < ApplicationController
 
     before_action :authenticate_user!
     before_action :set_world
-    #, only: [:index, :new, :create, :show]
+    before_action :set_plot, except: [:index, :new, :create, :show, :destroy]
+
 
     def index
         redirect_to worlds_path(@worlds)
@@ -13,6 +14,7 @@ class PlotsController < ApplicationController
     end
     
     def show
+        set_plot
     end
 
     def create
@@ -31,6 +33,12 @@ class PlotsController < ApplicationController
 
     def update
         @plot = Plot.find(params[:id])
+
+        if @plot.update(plot_params)
+            redirect_to worlds_path(@worlds)
+        else
+           render 'edit'
+        end
     end
 
     def destroy
@@ -49,6 +57,10 @@ class PlotsController < ApplicationController
             :user_id,
             :world_id
         )
+    end
+
+    def set_world
+        @world = World.find_by(id:params[:world_id])
     end
 
 end
