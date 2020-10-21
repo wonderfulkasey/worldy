@@ -26,16 +26,6 @@ end
    end 
 
 
-def character
-    @character = Character.find(params[:character_id])
-    render template: 'characters/show'
-end
-
-def plot
-    @plot = Plot.find(params[:plot_id])
-    render template: 'plots/show'
-end
-
 
 def create
     @world = current_user.worlds.build(world_params)
