@@ -34,9 +34,11 @@ class CharactersController < ApplicationController
 
     def update
         @character = Character.find(params[:id])
-        @character.user_id = current_user.id
+        #@character.user_id = current_user.id
 
-        if @character.update
+        byebug 
+
+        if @character.update(character_params)
             redirect_to world_character_path(@character.world, @character)
           else 
             render 'edit'

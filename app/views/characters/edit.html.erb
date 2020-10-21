@@ -2,6 +2,6 @@
 
 <%= render partial: "form", locals: {character: @character} %>
 
-<% @doc.errors.full_messages.each do |error| %>
+<% @character.errors.full_messages.each do |error| %>
 <%= error %> <br>
 <% end %>
