@@ -10,9 +10,6 @@ resources :worlds do
   resources :characters 
 end 
 
-resources :plots
-resources :characters
-
 #view world with most plots 
 get 'worlds/most-plots' => 'worlds#show'
 
