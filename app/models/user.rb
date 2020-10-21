@@ -1,7 +1,7 @@
 class User < ApplicationRecord
  
   has_many :worlds
-  accepts_nested_attributes_for :worlds
+  #accepts_nested_attributes_for :worlds
 
   has_many :characters, through: :worlds
   has_many :plots, through: :worlds
