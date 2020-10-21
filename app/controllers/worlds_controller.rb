@@ -18,7 +18,7 @@ end
         @world = World.most_plots.first
 
     else  
-        set_world
+        @world = World.find(params[:id])
 
     end
     @characters = @world.characters

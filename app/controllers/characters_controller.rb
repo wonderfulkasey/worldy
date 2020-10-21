@@ -11,7 +11,8 @@ class CharactersController < ApplicationController
     end
 
     def show
-        set_character
+        @character = Character.find(params[:id])
+  
     end
 
     def create

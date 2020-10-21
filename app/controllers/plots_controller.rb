@@ -12,7 +12,7 @@ class PlotsController < ApplicationController
     end
     
     def show
-        set_plot
+        @plot = Plot.find(params[:id])
     end
 
     def create
