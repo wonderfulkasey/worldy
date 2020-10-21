@@ -1,3 +1,10 @@
+<% if @plot.user_id == current_user.id %>
+    <%= link_to "Edit plot", edit_world_plot_path(@world) %> <br>
+   
+  <% else %>
+  This character belongs to <%= @world.user.email %>
+  
+<% end %>
 
 <p>
   <strong>Title:</strong>
