@@ -9,7 +9,6 @@
 
 <% else %>
  <h3>Created by:</h3>
- <%= @world.user.name %> 
 <br>
 <br>
 <% end %>
@@ -37,6 +36,17 @@
             <br>
 </p>
 
+<br>
+<p>
+            <h3>characters in <%= @world.name %></h3>
+            <div>
+             <% @characters.each do |c| %>
+                
+                  <li><%= link_to c.name, world_character_path(@world.character) %></li>
+ <% end %>
+             </div>
+</p>
+<br>
 
 <h2>
 <%= link_to 'BACK', worlds_path %>
