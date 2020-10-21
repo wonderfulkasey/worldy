@@ -1,6 +1,7 @@
 <% if @character.user_id == current_user.id %>
     <%= link_to "Edit character", edit_world_character_path(@world) %> <br>
-   
+    
+    <%= link_to "delete character", @character, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% else %>
  
 <% end %>

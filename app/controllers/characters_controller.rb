@@ -48,7 +48,7 @@ class CharactersController < ApplicationController
         @character = Character.find(params[:id])
         @character.destroy
         
-        redirect_to world_character_path(@character.world)
+        redirect_to worlds_path(@world)
     end
 
     private 
