@@ -11,11 +11,3 @@
  #   User.create(name:)
 #end
 
-require 'faker'
-
-10.times do 
-    User.create(
-        username: Faker::Name.username,
-        email: Faker::Internet.email
-    )
-end
