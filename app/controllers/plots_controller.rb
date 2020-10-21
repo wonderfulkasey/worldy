@@ -1,9 +1,7 @@
 class PlotsController < ApplicationController
 
     before_action :authenticate_user!
-    before_action :set_world
-    before_action :set_plot, except: [:index, :new, :create, :show, :destroy]
-
+   
 
     def index
         redirect_to worlds_path(@worlds)
@@ -59,12 +57,5 @@ class PlotsController < ApplicationController
         )
     end
 
-    def set_world
-        @world = World.find(params[:id])
-    end
-
-    def set_plot
-        @plot = Plot.find(params[:id])
-    end
 
 end

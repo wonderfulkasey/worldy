@@ -1,9 +1,7 @@
 class CharactersController < ApplicationController
 
     before_action :authenticate_user!
-    before_action :set_world
-    before_action :set_character, except: [:index, :new, :create, :show, :destroy]
-
+   
     def index
         redirect_to worlds_path(@worlds)
     end
@@ -64,13 +62,7 @@ class CharactersController < ApplicationController
         )
     end
 
-    def set_world
-        @world = World.find(params[:id])
-    end
-
-    def set_character
-        @character = Character.find(params[:id])
-    end
+   
 
 
 end

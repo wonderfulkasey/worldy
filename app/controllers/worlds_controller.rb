@@ -1,11 +1,7 @@
 class WorldsController < ApplicationController
 
     before_action :authenticate_user!
-    before_action :set_world, except: [:index, :new, :create, :show, :destroy, :profile]
-    before_action :set_plot, except: [:index, :new, :create, :show, :destroy, :edit, :update, :profile]
-    before_action :set_character, except: [:index, :new, :create, :show, :destroy, :edit, :update, :profile]
-
-
+    
     def index
         @worlds = World.all
    end
@@ -82,16 +78,5 @@ def world_params
     )
 end
 
-def set_world
-    @world = World.find(params[:id])
-end
-
-def set_character
-    @character = Character.find(params[:id])
-end
-
-def set_plot
-    @plot = Plot.find(params[:id])
-end
 
 end
