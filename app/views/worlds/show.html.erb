@@ -30,8 +30,9 @@
   <h3>plots in <%= @world.name %> </h3>
             <% @plots.each do |p| %>
                 
-                  <li><%= link_to p.title, world_plots_path(@world.plots) %></li>
+           <li><%= link_to p.title, world_plot_path(p.world, p) %></li>
  
+
             <% end %>
             <br>
 </p>
@@ -42,7 +43,7 @@
             <div>
              <% @characters.each do |c| %>
                 
-                  <li><%= link_to c.name, world_characters_path(@world.characters) %></li>
+                  <li><%= link_to c.name, world_character_path(c.world, c) %></li>
  <% end %>
              </div>
 </p>
