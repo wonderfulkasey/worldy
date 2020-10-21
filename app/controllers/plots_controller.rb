@@ -1,7 +1,7 @@
 class PlotsController < ApplicationController
 
     before_action :authenticate_user!
-   
+    before_action :set_world
 
     def index
         redirect_to worlds_path(@worlds)
@@ -57,5 +57,8 @@ class PlotsController < ApplicationController
         )
     end
 
+    def set_world
+        @world = World.find_by(id:params[:world_id])
+    end
 
 end

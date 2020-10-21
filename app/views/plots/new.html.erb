@@ -1,0 +1,7 @@
+<h1>Create a plot!</h1>
+
+<%= render partial: "form", locals: {plot: @plot} %>
+
+<% @plot.errors.full_messages.each do |error| %>
+<%= error %> <br>
+<% end %>
