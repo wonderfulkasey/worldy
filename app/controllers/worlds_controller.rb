@@ -14,6 +14,9 @@ class WorldsController < ApplicationController
     @world = World.new
 end
 
+def home 
+end 
+
    def show
     if params[:id] == "most-plots"
         @world = World.most_plots.first
