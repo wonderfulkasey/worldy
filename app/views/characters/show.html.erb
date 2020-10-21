@@ -1,3 +1,10 @@
+<% if @character.user_id == current_user.id %>
+    <%= link_to "Edit character", edit_world_character_path(@world) %> <br>
+    <%= link_to 'Destroy', @character.destroy , data: { confirm: 'Are you sure?' } %> </strong> <br>
+
+  <% else %>
+ 
+<% end %>
 
 <p>
   <strong>Name:</strong>
