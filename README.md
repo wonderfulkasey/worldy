@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Worlding - A RAILS Application
 
-Things you may want to cover:
+An application to store your worlds, plots, and characters - as well as view others'.
 
-* Ruby version
+This is the third portfolio project for Flatiron School's Online Software Engineering Program.
 
-* System dependencies
+# Install
+- Clone this repo
+- Run 'bundle'
+- Run 'rails s'
+- Open localhost:3000
 
-* Configuration
+# License
+The project is available as open source under the terms of the MIT License.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Contributing 
+Pull requests/bug reports are welcome on this application.
