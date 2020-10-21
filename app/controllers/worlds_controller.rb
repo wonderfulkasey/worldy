@@ -7,11 +7,11 @@ class WorldsController < ApplicationController
    end
 
    def new
-    @world = World.new
-end
+     @world = World.new
+   end
 
-def home 
-end 
+    def home 
+    end 
 
    def show
     if params[:id] == "most-plots"
