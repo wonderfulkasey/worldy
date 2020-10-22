@@ -1,6 +1,6 @@
 class WorldsController < ApplicationController
 
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:not_found, :internal_error]
     
     def index
         @worlds = World.all
@@ -57,6 +57,19 @@ def destroy
 
       redirect_to worlds_path
 end 
+
+def not_found
+    respond_to do |format|
+      format.html { render status: 404 }
+    end
+  end
+
+  def internal_error
+    respond_to do |format|
+      format.html { render status: 500 }
+    end
+  end
+
 
 private 
 

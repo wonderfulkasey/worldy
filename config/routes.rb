@@ -17,4 +17,12 @@ resources :characters
 get 'worlds/most-plots' => 'worlds#show'
 
 
+#dynamic error pages
+  #get 'errors/not_found'
+  #get 'errors/internal_server_error'
+
+  match "/404", :to => "worlds#not_found", :via => :all
+  match "/500", :to => "worlds#internal_error", :via => :all
+
+
 end
