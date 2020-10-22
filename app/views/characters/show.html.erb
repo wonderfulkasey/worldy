@@ -3,7 +3,8 @@
     
     <%= link_to "delete character", @character, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% else %>
- 
+  This character belongs to <%= @world.user.email %>
+  
 <% end %>
 
 <p>
