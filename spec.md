@@ -14,12 +14,12 @@ Specs:
     User has many Characters through Worlds; User has many Plots through Worlds
 
 - [x] Include at least one many-to-many relationship (x has_many y through z, y has_many x through z; e.g. Recipe has_many Items through Ingredients, Item has_many Recipes through Ingredients)  
-    Genre has many Worlds through Plots; World has many Genres through Plots
+    Species has many Worlds through Characters; World has many Species through Characters
 
 - [x] The "through" part of the has_many through includes at least one user submittable attribute, that is to say, some attribute other than its foreign keys that can be submitted by the app's user (attribute_name e.g. ingredients.quantity)  
-    (Character: name, class, alignment, species, description; 
-    World: name, description, aesthetic, genre;
-    Plot: title, importance, description)
+    (Character: name, type, species, description; 
+    World: name, description;
+    Plot: title, description)
     
 - [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)  
     Have validations in user, world, character, and plot models
@@ -28,7 +28,7 @@ Specs:
     worlds/most_plots shows the world with the highest amounts of plot
 
 - [x] Include signup (how e.g. Devise)  
-    using Devise, customized to include name, username, email and password at creation of account 
+    using Devise, customized to include username, email and password at creation of account 
     
 - [x] Include login (how e.g. Devise)  
     Login using Devise
