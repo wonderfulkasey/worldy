@@ -1,6 +1,7 @@
 <% if @plot.user_id == current_user.id %>
     <%= link_to "Edit plot", edit_world_plot_path(@world) %> <br>
    
+   <%= link_to "delete plot", @plot, method: :delete, data: { confirm: 'Are you sure?' } %>
   <% else %>
   This character belongs to <%= @world.user.email %>
   

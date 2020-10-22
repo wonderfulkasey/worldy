@@ -50,7 +50,7 @@ class CharactersController < ApplicationController
         @character = Character.find(params[:id])
         @character.destroy
         
-        redirect_to worlds_path(@world)
+        redirect_to world_path(@world)
     end
 
     private 
