@@ -44,7 +44,7 @@ class PlotsController < ApplicationController
         @plot = Plot.find(params[:id])
         @plot.destroy
 
-        redirect_to world_path(@plot.world, @plot)
+        redirect_to world_path(@plot.world)
     end
 
     private 
