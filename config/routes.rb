@@ -20,7 +20,7 @@ get 'worlds/most-plots' => 'worlds#show'
 
 
 #dynamic error pages
-match "/404", :to => "errors#not_found", :via => :all
-match "/500", :to => "errors#internal_server_error", :via => :all
+get "/404", :to => "errors#not_found", :via => :all
+get "/500", :to => "errors#internal_server_error", :via => :all
 
 end
