@@ -33,7 +33,8 @@ class PlotsController < ApplicationController
         @plot = Plot.find(params[:id])
 
         if @plot.update(plot_params)
-            redirect_to worlds_path(@worlds)
+            redirect_to world_plot_path(@plot.world, @plot)
+        
         else
            render 'edit'
         end
