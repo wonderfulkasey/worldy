@@ -1,6 +1,6 @@
 # README
 
-# Worlding - A RAILS Application
+# Worldy - A RAILS Application
 
 An application to store your worlds, plots, and characters - as well as view others'.
 
