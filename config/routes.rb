@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'errors/not_found'
-  get 'errors/internal_server_error'
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -20,7 +18,11 @@ get 'worlds/most-plots' => 'worlds#show'
 
 
 #dynamic error pages
-get "/404", :to => "errors#not_found", :via => :all
-get "/500", :to => "errors#internal_server_error", :via => :all
+get 'errors/not_found'
+get 'errors/internal_server_error'
+
+
+match "/404", :to => "errors#not_found", :via => :all
+match "/500", :to => "errors#internal_server_error", :via => :all
 
 end
