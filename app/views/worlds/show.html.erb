@@ -2,6 +2,9 @@
 <br>
     <%= link_to "EDIT WORLD", edit_world_path(@world) %> <br>
     <br>
+    <%= link_to "delete world", @world, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <br>
+    <br>
     <%= link_to "NEW CHARACTER", new_world_character_path(@world) %> <br>
     <%= link_to "NEW PLOT", new_world_plot_path(@world) %>
 <br>
