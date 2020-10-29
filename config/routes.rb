@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
 root 'worlds#home'
 
+#resources makes the
+#index, new, create, show, edit, 
+#update, and destroy routes/actions
 resources :worlds do
   resources :plots
   resources :characters 

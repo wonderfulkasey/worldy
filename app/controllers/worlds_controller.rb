@@ -25,7 +25,9 @@ class WorldsController < ApplicationController
     @plots = @world.plots
    end 
 
-
+# the create action saves info to 
+#the database, while new 
+#just makes a new instance 
 
 def create
     @world = current_user.worlds.build(world_params)
