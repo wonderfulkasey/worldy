@@ -14,4 +14,4 @@ def self.most_plots
    joins(:plots).group("worlds.id").order("COUNT(*) DESC").select("worlds.*").limit(1)
 end
 
-end
+end 

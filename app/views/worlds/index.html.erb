@@ -5,6 +5,15 @@
     </div>
     <br>
 
+    <br>
+
+    <%= form_tag(worlds_path method: :get) do %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag 'Search', name: nil %>
+    <% end %>
+
+    <br>
+
 <ul>
 <% @worlds.each do |w| %>
 

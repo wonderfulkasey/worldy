@@ -2,6 +2,7 @@ class CharactersController < ApplicationController
 
     before_action :authenticate_user!
     before_action :set_world
+    before_action :set_character, only: [:show, :edit, :update, :destroy]
    
     def index
         redirect_to worlds_path(@worlds)
@@ -12,8 +13,6 @@ class CharactersController < ApplicationController
     end
 
     def show
-        @character = Character.find(params[:id])
-  
     end
 
     def create
@@ -29,12 +28,10 @@ class CharactersController < ApplicationController
   
 
     def edit
-       @character = Character.find(params[:id])
     end
 
     def update
-        @character = Character.find(params[:id])
-        #@character.user_id = current_user.id
+       
 
         if @character.update(character_params)
             redirect_to world_character_path(@character.world, @character)
@@ -45,7 +42,6 @@ class CharactersController < ApplicationController
     end
 
     def destroy
-        @character = Character.find(params[:id])
         @character.destroy
         
         redirect_to world_path(@character.world)
@@ -69,5 +65,8 @@ class CharactersController < ApplicationController
         @world = World.find_by(id:params[:world_id])
     end
 
+    def set_character
+        @character = Character.find(params[:id])
+    end 
 
 end

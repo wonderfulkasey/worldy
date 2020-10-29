@@ -3,7 +3,11 @@ class WorldsController < ApplicationController
     before_action :authenticate_user!, except: [:not_found, :internal_error]
     
     def index
-        @worlds = World.all
+        if params[:name]
+            @world = World.where('world LIKE ?', "%# {params[:world]}%")
+        else  
+            @worlds = World.all
+        end 
    end
 
    def new
