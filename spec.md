@@ -28,7 +28,7 @@ Specs:
     worlds/most_plots shows the world with the highest amounts of plot
 
 - [x] Include signup (how e.g. Devise)  
-    using Devise, customized to include username, email and password at creation of account 
+    using Devise, customized to include email and password at creation of account 
     
 - [x] Include login (how e.g. Devise)  
     Login using Devise
