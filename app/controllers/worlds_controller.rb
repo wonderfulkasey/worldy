@@ -1,8 +1,9 @@
 class WorldsController < ApplicationController
 
     def index
-            @worlds = World.search(params[:search])
-   end
+        @worlds = World.search(params[:search])
+            
+    end
 
    def new
      @world = World.new
@@ -57,6 +58,7 @@ def destroy
 
       redirect_to worlds_path
 end 
+
 
 
 private 

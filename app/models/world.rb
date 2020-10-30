@@ -13,13 +13,13 @@ class World < ApplicationRecord
     def self.search(search)
         if search
             world = World.find_by(name: search)
-            if world
+            if world 
                 self.where(world_id: world)
-            else
-                World.all
-            end
         else
-            World.all
+            @worlds = World.all
+        end 
+    else 
+        @worlds = World.all 
         end
     end 
 
