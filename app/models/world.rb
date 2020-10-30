@@ -14,4 +14,17 @@ def self.most_plots
    joins(:plots).group("worlds.id").order("COUNT(*) DESC").select("worlds.*").limit(1)
 end
 
+def self.search(search)
+    if search
+        world = World.find_by(name: search)
+        if world
+            self.where(world_id: world)
+        else
+            World.all
+        end
+    else
+        World.all
+    end
+end 
+
 end 

@@ -4,7 +4,7 @@ class WorldsController < ApplicationController
     
     def index
         if params[:name]
-            @world = World.where('world LIKE ?', "%# {params[:world]}%")
+            @world = World.search(params [:search])
         else  
             @worlds = World.all
         end 
@@ -71,7 +71,8 @@ def world_params
     params.require(:world).permit(
         :name,
         :description,
-        :user_id
+        :user_id, 
+        :search
     )
 end
 
