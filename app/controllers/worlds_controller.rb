@@ -1,13 +1,7 @@
 class WorldsController < ApplicationController
 
-    before_action :authenticate_user!, except: [:not_found, :internal_error]
-    
     def index
-        if params[:name]
-            @world = World.search(params [:search])
-        else  
-            @worlds = World.all
-        end 
+            @worlds = World.search(params[:search])
    end
 
    def new
