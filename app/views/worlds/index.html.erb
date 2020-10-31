@@ -8,10 +8,10 @@
     <br>
 
     <h2>Search by World:</h2>
-    <%= form_tag world_index_path, :method => "get" do %>
+    <%= form_tag worlds_path, :method => "get" do %>
         <%= label_tag(:search, "What World Are You Looking For?") %>
-        <%= text_field_tag(:search, params[:search]) %>
-        <%= submit_tag ("Search", :name => nil) %>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag("Search", :name => nil) %>
     <% end %>
 
     <br>
