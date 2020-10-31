@@ -1,7 +1,11 @@
 class WorldsController < ApplicationController
 
     def index
-        @worlds = World.search(params[:search])
+        if params[:name]
+             @worlds = World.where('name LIKE ?', "%#{params[:name]}%")
+        else 
+            @worlds = World.all 
+        end 
             
     end
 
